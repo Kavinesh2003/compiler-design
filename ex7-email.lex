@@ -3,20 +3,16 @@
 
 %%
 
-[A-Z] {
-  printf("%c", yytext[0]);
-}
-
-. {
-}
-
+[a-z.0-9]+@[a-z]+".com"|".in" {printf("\n mail_id valid\n");}
+.+ {printf("\n mail_id invalid\n");}
+ 
 %%
+
 int yywrap()
+{}
+
+int main()
 {
-
-}
-
-int main() {
-  yylex();
-  return 0;
+printf("\n enter the mail_id:");
+yylex();
 }
